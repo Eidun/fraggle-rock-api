@@ -14,6 +14,7 @@ def get_organizacion(db, json):
     organizacion = db_organizaciones.get_organizacion(db, json['organizacion_id'])
     if organizacion['lider_id'] is not None:
         organizacion['lider'] = db_personajes.get_personaje(db, organizacion['lider_id'])
+    organizacion['miembros'] = db_personajes.get_miembros(db, organizacion['id'])
     return organizacion
 
 

@@ -40,8 +40,6 @@ def transform_data(lugar_db):
         'descripcion': lugar_db[8],
         'dominado_por': lugar_db[9],
         'clase': lugar_db[10],
-        'dominado_por_alias': lugar_db[11],
-
     }
     return lugar
 

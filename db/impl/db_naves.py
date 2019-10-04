@@ -36,8 +36,10 @@ def transform_data(nave_db):
         'descripcion': nave_db[5],
         'imagen': nave_db[6],
         'clase': nave_db[7],
-
     }
+    if len(nave_db) > 8:
+        nave['alias_comandante'] = nave_db[8]
+
     return nave
 
 

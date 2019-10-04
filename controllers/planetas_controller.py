@@ -9,9 +9,10 @@ def parse_args(f):
         json = request.get_json()
         if json is None:
             json = {}
-        json['tabla'] = 'LUGARES'
+        json['tabla'] = 'PLANETAS'
         json['id'] = 'lugar_id'
         return f(*args, **kwargs, json=json)
+
     return decorated_function
 
 
@@ -42,5 +43,3 @@ class Lugar(Resource):
         print(json)
         planeta = planetas_manager.update_planeta(json)
         return planeta, 200
-
-

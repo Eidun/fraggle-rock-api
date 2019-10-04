@@ -22,12 +22,21 @@ def get_personajes(db):
     for personaje_db in personajes_db:
         personaje = transform_data(personaje_db)
         personajes.append(personaje)
+    return personajes
+
+
+def get_miembros(db, organizacion_id):
+    db.execute(QUERIES.SELECT_MIEMBROS, (organizacion_id,))
+    personajes_db = db.fetchall()
+    personajes = []
+    for personaje_db in personajes_db:
+        personaje = transform_data(personaje_db)
+        personajes.append(personaje)
 
     return personajes
 
 
 def transform_data(personaje_db):
-    print(personaje_db)
     personaje = {
         'id': personaje_db[0],
         'organizacion_id': personaje_db[1],
@@ -44,6 +53,3 @@ def transform_data(personaje_db):
     if len(personaje_db) > 11:
         personaje['alias_organizacion'] = personaje_db[11]
     return personaje
-
-
-
