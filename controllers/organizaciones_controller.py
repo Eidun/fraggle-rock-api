@@ -42,4 +42,10 @@ class Organizacion(Resource):
         organizacion = organizaciones_manager.update_organizacion(json)
         return organizacion, 200
 
+    @parse_args
+    def delete(self, organizacion_id, json):
+        json['organizacion_id'] = organizacion_id
+        organizacion = organizaciones_manager.delete_organizacion(json)
+        return organizacion, 200
+
 

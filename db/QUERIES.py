@@ -101,6 +101,7 @@ SELECT_ORGANIZACION = "SELECT O.*, E.alias FROM ORGANIZACIONES O, ENTIDADES E WH
 SELECT_CREATED_ORGANIZACION = "SELECT O.*, E.alias FROM ORGANIZACIONES O, ENTIDADES E WHERE entidad_id=(SELECT MAX(entidad_id) FROM ORGANIZACIONES) AND O.entidad_id=E.id"
 
 
+
 # ======================================================================================================================
 #   Updates
 # ======================================================================================================================
