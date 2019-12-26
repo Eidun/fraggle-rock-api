@@ -5,8 +5,8 @@ import os
 # Deploy the bot with a local DB
 config_local = {
     'database': 'fragglerock',
-    'user': 'Tester McTester',
-    'password': 'tester',
+    'user': 'postgres',
+    'password': 'admin',
     'host': 'localhost',
     'port': 5432
 }

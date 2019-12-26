@@ -21,6 +21,7 @@ def transaction(f):
         try:
             rv = f(db, *args, **kwargs)
         except Exception as e:
+            print(e)
             conn.rollback()
             raise
         else:
