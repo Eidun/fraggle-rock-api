@@ -42,4 +42,10 @@ class Personaje(Resource):
         personaje = personajes_manager.update_personaje(json)
         return personaje, 200
 
+    @parse_args
+    def delete(self, personaje_id, json):
+        json['personaje_id'] = personaje_id
+        personaje = personajes_manager.delete_personaje(json)
+        return personaje, 200
+
 

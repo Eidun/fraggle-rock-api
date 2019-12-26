@@ -40,3 +40,16 @@ def __update_personaje(db, personaje, json):
                                      id_name=json['id'], id_value=personaje['id'])
         personaje[change['field']] = change['value']
     return personaje
+
+@transaction
+def delete_personaje(db, json):
+    personaje = db_personajes.get_personaje(db, json['personaje_id'])
+    db_utils.delete_simple_row(db, 'PERSONAJES', 'entidad_id', personaje['id'])
+    db_utils.delete_simple_row(db, 'ENTIDADES', 'id', personaje['id'])
+    __delete_personaje(db, personaje, json)
+    return personaje
+
+
+def __delete_personaje(db, personaje, json):
+    db_utils.delete_simple_row(db, table_name=json['tabla'], id_name=json['id'], id_value=personaje['id'])
+    return personaje
