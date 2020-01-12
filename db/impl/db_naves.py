@@ -26,6 +26,16 @@ def get_naves(db):
     return naves
 
 
+def get_tripulantes(db, id_nave):
+    db.execute(QUERIES.SELECT_TRIPULANTES, (id_nave,))
+    tripulantes_db = db.fetchall()
+    tripulantes = []
+    for tripulante_db in tripulantes_db:
+        tripulante = transform_tripy_data(tripulante_db)
+        tripulantes.append(tripulante)
+    return tripulantes
+
+
 def transform_data(nave_db):
     nave = {
         'id': nave_db[0],
@@ -43,4 +53,10 @@ def transform_data(nave_db):
     return nave
 
 
-
+def transform_tripy_data(tripulante_db):
+    return {
+        'nave_id': tripulante_db[0],
+        'personaje_id': tripulante_db[1],
+        'cargo': tripulante_db[2],
+        'alias': tripulante_db[3]
+    }

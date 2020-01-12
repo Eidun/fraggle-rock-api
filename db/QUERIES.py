@@ -52,7 +52,7 @@ NEW_ORGANIZACION = "INSERT INTO ENTIDADES (clase, alias) VALUES ('Organización'
                    "INSERT INTO ORGANIZACIONES (entidad_id)" \
                    "SELECT MAX(id) FROM entidades;"
 
-NEW_NAVE = "INSERT INTO NAVES DEFAULT VALUES;"
+NEW_NAVE = "INSERT INTO NAVES (clase) VALUES ('Nave');"
 
 NEW_LUGAR = "INSERT INTO LUGARES DEFAULT VALUES;"
 
@@ -100,7 +100,7 @@ SELECT_ORGANIZACIONES = "SELECT O.*, E.alias FROM ORGANIZACIONES O, ENTIDADES E 
 SELECT_ORGANIZACION = "SELECT O.*, E.alias FROM ORGANIZACIONES O, ENTIDADES E WHERE entidad_id=%s AND O.entidad_id=E.id"
 SELECT_CREATED_ORGANIZACION = "SELECT O.*, E.alias FROM ORGANIZACIONES O, ENTIDADES E WHERE entidad_id=(SELECT MAX(entidad_id) FROM ORGANIZACIONES) AND O.entidad_id=E.id"
 
-
+SELECT_TRIPULANTES = "SELECT T.*, E.alias FROM TRIPULA T, ENTIDADES E WHERE nave_id=%s AND T.personaje_id=E.id"
 
 # ======================================================================================================================
 #   Updates

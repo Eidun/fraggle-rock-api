@@ -12,6 +12,7 @@ def get_naves(db):
 @transaction
 def get_nave(db, json):
     nave = db_naves.get_nave(db, json['nave_id'])
+    nave['tripulantes'] = db_naves.get_tripulantes(db, json['nave_id'])
     return nave
 
 

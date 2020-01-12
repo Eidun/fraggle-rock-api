@@ -42,6 +42,7 @@ def __update_organizacion(db, organizacion, json):
         organizacion[change['field']] = change['value']
     return organizacion
 
+
 @transaction
 def delete_organizacion(db, json):
     personajes = db_personajes.get_miembros(db, json['organizacion_id'])
@@ -52,6 +53,7 @@ def delete_organizacion(db, json):
     db_utils.delete_simple_row(db, 'ENTIDADES', 'id', organizacion['id'])
     __delete_organizacion(db, organizacion, json)
     return organizacion
+
 
 def __delete_organizacion(db, organizacion, json):
     db_utils.delete_simple_row(db, table_name=json['tabla'], id_name=json['id'], id_value=organizacion['id'])

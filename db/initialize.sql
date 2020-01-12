@@ -32,7 +32,7 @@ CREATE TABLE NAVES (id serial PRIMARY KEY, comandante_id integer, organizacion_i
 					FOREIGN KEY (comandante_id) REFERENCES PERSONAJES(entidad_id),
 					FOREIGN KEY (organizacion_id) REFERENCES ORGANIZACIONES(entidad_id), clase text);
 
-CREATE TABLE TRIPULA (nave_id integer, personaje_id integer, FOREIGN KEY (nave_id) REFERENCES NAVES(id),
+CREATE TABLE TRIPULA (nave_id integer, personaje_id integer, cargo text, FOREIGN KEY (nave_id) REFERENCES NAVES(id),
 FOREIGN KEY (personaje_id) REFERENCES PERSONAJES(entidad_id));
 
 CREATE TABLE PLANETAS (lugar_id integer UNIQUE, temperatura text, diametro text, tipo text, atmosfera_respirable boolean,
